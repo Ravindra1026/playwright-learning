@@ -1,4 +1,4 @@
-const {test} = require('@playwright/test');
+const {test, expect} = require('@playwright/test');
 
 test('Browser context Playwright test', async({browser})=>
 {
@@ -6,14 +6,15 @@ test('Browser context Playwright test', async({browser})=>
     const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+    console.log(await page.title());
 
 });
 
 
-test.only('Page Playwright test', async({page})=>
+test('Page Playwright test', async({page})=>
 {
       
-    await page.goto("https://rahulshettyacademy.com/practice");
+    await page.goto("https://google.com/");
     console.log(await page.title());
-    expect(page).toHaveTitle("QA Automation Practice Sites | Playwright, Selenium & API Testing");
+    await expect(page).toHaveTitle("Google");
 });
