@@ -1,6 +1,6 @@
 const {test, expect} = require('@playwright/test');
 
-test.only('Invalid Login Test', async({browser})=> 
+test('Invalid Login Test', async({browser})=> 
 {
     const context = await browser.newContext();
     const page = await context.newPage();
@@ -12,8 +12,6 @@ test.only('Invalid Login Test', async({browser})=>
     await page.locator('#signInBtn').click();
     console.log(await page.locator('[style*="block"]').textContent());
     await expect(page.locator('[style*="block"]')).toContainText("Incorrect username/password.");
-
-
 
 
 
