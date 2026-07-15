@@ -1,6 +1,6 @@
 const {test, expect} = require('@playwright/test');
 
-test.only('Get all product from List', async({browser})=> 
+test('Get all product from List', async({browser})=> 
 {
     const context = await browser.newContext();
     const page = await context.newPage();
@@ -21,4 +21,4 @@ test.only('Get all product from List', async({browser})=>
 
 
 
-})
+});
